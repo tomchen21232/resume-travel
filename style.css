@@ -221,10 +221,11 @@ footer .btns { justify-content: center; }
 
 /* ---- Cross-cultural ---- */
 .xc { display: grid; grid-template-columns: 1fr 1.6fr; gap: 26px; align-items: start; }
-.xc .places { display: grid; gap: 10px; }
-.xc .places div { background: var(--accent-soft); border-radius: var(--radius); padding: 14px 16px; }
-.xc .places b { display: block; font-size: 1.3rem; color: var(--accent); line-height: 1.2; }
-.xc .places span { font-size: .86rem; color: var(--muted); }
+.xc .places { background: var(--accent-soft); border-radius: var(--radius); padding: 16px 18px; }
+.xc .places .kind { font-size: .8rem; font-weight: 700; letter-spacing: .05em; color: var(--accent); margin-bottom: 6px; }
+.xc .places .row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid rgba(46,64,111,.12); }
+.xc .places .row b { font-size: 1.2rem; color: var(--accent); }
+.xc .places .row span { font-size: .95rem; font-weight: 500; color: var(--text); }
 .xc p { font-size: .96rem; }
 
 /* ---- Video placeholder card ---- */
@@ -258,14 +259,13 @@ footer .btns { justify-content: center; }
 @page { size: A4; margin: 12mm 12mm 14mm; }
 @media print {
   html, body { font-size: 13px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .wrap { max-width: none; padding: 0; }
+  .wrap { max-width: none; padding: 0 3px; }
   .nav, .no-print, .video { display: none !important; }
   .print-only { display: block; }
   section { padding: 22px 0; }
   section.first { padding-top: 0; }
   .lead { margin-bottom: 14px; }
   .strip { margin-top: 16px; }
-  .vcard img { aspect-ratio: 4 / 5; }
   .film { grid-template-columns: 1fr; }
   .stat, .svc, .feature, .case, .vcard, .film, .job, .qual, .bcard, .story, .tour { break-inside: avoid; page-break-inside: avoid; }
   /* 照片輪播 → PDF 改成靜態小圖：前 3 張並排，其餘不印 */
@@ -274,6 +274,7 @@ footer .btns { justify-content: center; }
   .carousel .slides > :nth-child(n+4) { display: none; }
   .carousel .dots, .carousel .ctrl { display: none !important; }
   .hero .btns { display: none; }
+  .vcard img { object-position: top; }
   .stories { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .todo { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .bring, .quals, .stories, .cards, .xc, .edu { break-inside: auto; }
