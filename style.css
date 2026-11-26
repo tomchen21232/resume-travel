@@ -5,8 +5,10 @@
   --highlight: #b62424;   /* 強調色（紅）：只用在少數重點 */
   --text: #2b2b2b;
   --muted: #6b6f78;
-  --line: #e4e6ec;
-  --bg: #ffffff;
+  --line: #e6e1d7;
+  --bg: #faf8f4;      /* 米白紙感底 */
+  --card: #ffffff;
+  --gold: #a87b3f;    /* 沙金點綴：小標、年份、細線 */
   --max-width: 920px;
   --radius: 12px;
 }
@@ -332,4 +334,30 @@ footer .btns { justify-content: center; }
 }
 @media screen and (max-width: 960px) {
   .nav .links { gap: 12px; font-size: .85rem; }
+}
+
+/* ============ 旅行文件風 ============ */
+.nav { background: rgba(250,248,244,.94); }
+.hero-band { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero-band::before { content: ""; position: absolute; inset: 0; background: url("images/contour.svg") center / cover no-repeat; opacity: .09; pointer-events: none; }
+.hero-band .wrap { position: relative; }
+.hero-band section.first { padding-bottom: 44px; }
+.hero .role { letter-spacing: .02em; }
+.hero img.avatar { border-color: #fff; box-shadow: 0 4px 14px rgba(46,64,111,.14); }
+h2 small { color: var(--gold); letter-spacing: .08em; text-transform: uppercase; font-size: .74rem; font-weight: 500; }
+main > section:first-child { border-top: none; }
+.qual, .bcard, .story, .vcard, .tour { background: var(--card); }
+.bcard .to b { color: var(--gold); }
+.bcard .to { border-top-color: #e0d6c4; }
+.job .meta { color: var(--gold); }
+.edu .item { border-left-color: var(--gold); }
+.wh-card figcaption small { color: #f1dcb8; opacity: 1; }
+footer { background: var(--accent); color: #fff; }
+footer h2 { color: #fff; }
+footer p { color: #d9dff0; }
+footer .btn { background: #fff; color: var(--accent); border-color: #fff; }
+footer .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.6); }
+@media print {
+  .hero-band::before { opacity: .07; }
+  body { background: #fff; }
 }
