@@ -338,8 +338,9 @@ footer .btns { justify-content: center; }
 
 /* ============ 旅行文件風 ============ */
 .nav { background: rgba(250,248,244,.94); }
-.hero-band { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
-.hero-band::before { content: ""; position: absolute; inset: 0; background: url("images/contour.svg") center / cover no-repeat; opacity: .09; pointer-events: none; }
+.hero-band { position: relative; border-bottom: 1px solid var(--line); }
+/* 世界地圖底圖（點狀，Natural Earth 公有領域資料），固定在畫面正中間，捲動時不動 */
+body::before { content: ""; position: fixed; z-index: -1; left: 50%; top: 50%; width: min(1100px, 94vw); aspect-ratio: 1200 / 560; transform: translate(-50%, -50%); background: url("images/world-dots.svg") center / contain no-repeat; opacity: .065; pointer-events: none; }
 .hero-band .wrap { position: relative; }
 .hero-band section.first { padding-bottom: 44px; }
 .hero .role { letter-spacing: .02em; }
@@ -358,6 +359,9 @@ footer p { color: #d9dff0; }
 footer .btn { background: #fff; color: var(--accent); border-color: #fff; }
 footer .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.6); }
 @media print {
-  .hero-band::before { opacity: .07; }
+  body::before { opacity: .05; }
   body { background: #fff; }
+}
+@media screen and (max-width: 760px) {
+  body::before { width: 190vw; }
 }
