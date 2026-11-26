@@ -277,7 +277,8 @@ footer .btns { justify-content: center; }
   .vcard img { object-position: top; }
   .stories { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .todo { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .bring, .quals, .stories, .cards, .xc, .edu { break-inside: auto; }
+  .bring, .quals, .stories, .cards, .xc { break-inside: auto; }
+  #edu, .edu .item { break-inside: avoid; page-break-inside: avoid; }
   h2, h3 { break-after: avoid; page-break-after: avoid; }
   footer { padding: 26px 20px; break-inside: avoid; }
   a { text-decoration: none; }
@@ -298,3 +299,5 @@ footer .btns { justify-content: center; }
   .cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .vcard.ph-card .ph { aspect-ratio: 3 / 4; }
 }
+
+.vcard .num.small { font-size: .78rem; font-weight: 500; color: var(--muted); }
