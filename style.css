@@ -185,7 +185,7 @@ footer .btns { justify-content: center; }
 .bcard .to b { display: block; font-size: .8rem; letter-spacing: .05em; color: var(--accent); margin-bottom: 2px; }
 .bcard .to { border-top: 1px dashed var(--line); margin-top: 14px; }
 /* 三張卡片的「對應到帶團」對齊同一高度 */
-@supports (grid-template-rows: subgrid) { @media screen and (min-width: 761px) {
+@supports (grid-template-rows: subgrid) { @media screen and (min-width: 761px), print {
   .bring { grid-template-rows: auto auto 1fr auto; row-gap: 0; }
   .bcard { display: grid; grid-row: span 4; grid-template-rows: subgrid; }
   .bcard .to { margin-top: 14px; }
@@ -268,8 +268,15 @@ footer .btns { justify-content: center; }
   .vcard img { aspect-ratio: 4 / 5; }
   .film { grid-template-columns: 1fr; }
   .stat, .svc, .feature, .case, .vcard, .film, .job, .qual, .bcard, .story, .tour { break-inside: avoid; page-break-inside: avoid; }
-  .carousel .slides { overflow: visible; }
-  .carousel .ctrl { display: none; }
+  /* 照片輪播 → PDF 改成靜態小圖：前 3 張並排，其餘不印 */
+  .carousel .slides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; overflow: visible; padding: 4px; }
+  .carousel .slides > * { aspect-ratio: 1 / 1; border-radius: 6px; }
+  .carousel .slides > :nth-child(n+4) { display: none; }
+  .carousel .dots, .carousel .ctrl { display: none !important; }
+  .hero .btns { display: none; }
+  .stories { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .todo { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .bring, .quals, .stories, .cards, .xc, .edu { break-inside: auto; }
   h2, h3 { break-after: avoid; page-break-after: avoid; }
   footer { padding: 26px 20px; break-inside: avoid; }
   a { text-decoration: none; }
