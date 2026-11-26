@@ -176,7 +176,7 @@ footer .btns { justify-content: center; }
 .qual.main { background: var(--accent-soft); border-color: var(--accent-soft); }
 
 /* ---- What I Bring cards ---- */
-.bring { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.bring { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .bcard { border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; }
 .bcard .ic { font-size: 1.5rem; line-height: 1; margin-bottom: 10px; }
 .bcard h3 { color: var(--accent); }
@@ -186,8 +186,9 @@ footer .btns { justify-content: center; }
 .bcard .to { border-top: 1px dashed var(--line); margin-top: 14px; }
 /* 三張卡片的「對應到帶團」對齊同一高度 */
 @supports (grid-template-rows: subgrid) { @media screen and (min-width: 761px), print {
-  .bring { grid-template-rows: auto auto 1fr auto; row-gap: 0; }
+  .bring { row-gap: 0; }
   .bcard { display: grid; grid-row: span 4; grid-template-rows: subgrid; }
+  .bcard:nth-child(n+3) { margin-top: 14px; }
   .bcard .to { margin-top: 14px; }
 } }
 
@@ -278,7 +279,10 @@ footer .btns { justify-content: center; }
   .stories { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .todo { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .bring, .quals, .stories, .cards, .xc { break-inside: auto; }
-  #edu, .edu .item { break-inside: avoid; page-break-inside: avoid; }
+  #edu, .edu .item, #video { break-inside: avoid; page-break-inside: avoid; }
+  .bring { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .bcard { padding: 14px; }
+  .bcard:nth-child(n+3) { margin-top: 0 !important; }
   h2, h3 { break-after: avoid; page-break-after: avoid; }
   footer { padding: 26px 20px; break-inside: avoid; }
   a { text-decoration: none; }
