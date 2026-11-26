@@ -330,3 +330,6 @@ footer .btns { justify-content: center; }
   .wh, .wh-card { break-inside: avoid; page-break-inside: avoid; }
   .wh-card { aspect-ratio: 16 / 8; }
 }
+@media screen and (max-width: 960px) {
+  .nav .links { gap: 12px; font-size: .85rem; }
+}
