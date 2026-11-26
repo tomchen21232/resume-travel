@@ -286,6 +286,23 @@ document.querySelectorAll('.carousel').forEach(function (c) {
     for (var i = 0; i < n; i++) dots.children[i].className = i === cur ? 'on' : '';
   }, { passive: true });
 });
+// 舊版瀏覽器（不支援 subgrid）時，讓同一列卡片的上半部等高，「對應到帶團」就會對齊
+(function () {
+  if (window.CSS && CSS.supports('grid-template-rows', 'subgrid')) return;
+  function eq() {
+    var cards = [].slice.call(document.querySelectorAll('.bcard'));
+    cards.forEach(function (c) { c.querySelector('.exp').style.minHeight = ''; });
+    var rows = {};
+    cards.forEach(function (c) { (rows[c.offsetTop] = rows[c.offsetTop] || []).push(c); });
+    Object.keys(rows).forEach(function (k) {
+      var r = rows[k]; if (r.length < 2) return;
+      var h = Math.max.apply(null, r.map(function (c) { return c.querySelector('.exp').offsetHeight; }));
+      r.forEach(function (c) { c.querySelector('.exp').style.minHeight = h + 'px'; });
+    });
+  }
+  window.addEventListener('load', eq); window.addEventListener('resize', eq);
+  if (document.fonts) document.fonts.ready.then(eq);
+})();
 </script>
 
 </body>
