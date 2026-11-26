@@ -281,3 +281,7 @@ footer .btns { justify-content: center; }
 .film a.ph-video:hover { box-shadow: 0 6px 18px rgba(46,64,111,.12); }
 .film a.ph-video img { position: absolute; inset: 0; }
 @media print { .film .ph-video { display: flex !important; } }
+@media screen and (max-width: 760px) {
+  .cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .vcard.ph-card .ph { aspect-ratio: 3 / 4; }
+}
