@@ -305,3 +305,28 @@ footer .btns { justify-content: center; }
 }
 
 .vcard .num.small { font-size: .78rem; font-weight: 500; color: var(--muted); }
+
+/* ---- Nav actions ---- */
+.nav-actions { display: flex; align-items: center; gap: 8px; flex: none; }
+.icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); }
+.icon-btn:hover { background: var(--accent-soft); }
+
+/* ---- 跨文化生活：打工度假照片卡 ---- */
+.xc-lead { color: var(--text); font-size: .96rem; margin-bottom: 18px; }
+.wh { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.wh-card { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 10; background: var(--accent-soft); }
+.wh-card > img, .wh-card > .ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.wh-card > .ph { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--accent); font-size: .9rem; padding-bottom: 48px; }
+.wh-card > .ph small { color: var(--muted); }
+.wh-card figcaption { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: baseline; gap: 10px; padding: 26px 18px 14px; color: #fff; background: linear-gradient(180deg, rgba(20,28,52,0) 0%, rgba(20,28,52,.78) 100%); }
+.wh-card figcaption small { position: absolute; left: 18px; top: 6px; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; opacity: .85; }
+.wh-card figcaption b { font-size: 1.35rem; line-height: 1.2; }
+.wh-card figcaption span { font-size: .92rem; opacity: .95; }
+@media screen and (max-width: 760px) {
+  .wh { grid-template-columns: 1fr; }
+}
+@media print {
+  .nav-actions { display: none; }
+  .wh, .wh-card { break-inside: avoid; page-break-inside: avoid; }
+  .wh-card { aspect-ratio: 16 / 8; }
+}
