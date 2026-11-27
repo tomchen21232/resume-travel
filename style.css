@@ -377,3 +377,11 @@ footer .btn.ghost { background: transparent; color: #fff; border-color: rgba(255
   .wh-card.carousel .slides > img { border-radius: 0; aspect-ratio: auto; }
   .wh-card.carousel .slides > :nth-child(n+2) { display: none; }
 }
+
+/* 照片小條：自我介紹下方、結尾上方（整張不裁切，等高排列） */
+.moments { display: flex; gap: 10px; max-width: 600px; margin: 28px auto 0; }
+.moments img { width: 0; flex-basis: 0; height: auto; min-width: 0; border-radius: 10px; box-shadow: 0 4px 14px rgba(46,64,111,.14); }
+footer .moments { margin: 0 auto 30px; }
+footer .moments img { box-shadow: 0 4px 18px rgba(0,0,0,.3); }
+@media (max-width: 760px) { .moments { gap: 6px; } }
+@media print { .moments { max-width: 330px; margin-top: 12px; } .moments img { box-shadow: none; } footer .moments { margin-bottom: 14px; } }
