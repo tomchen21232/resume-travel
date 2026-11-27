@@ -387,3 +387,5 @@ footer .moments img { aspect-ratio: 163 / 258; box-shadow: 0 4px 18px rgba(0,0,0
 @media (max-width: 760px) { .moments { gap: 6px; } }
 @media print { .hero .moments { margin-top: 12px; max-width: 360px; } .moments img { box-shadow: none; } footer .moments { max-width: 240px; margin-bottom: 14px; } }
 @media screen and (min-width: 761px) { .hero { align-items: flex-start; } .hero img.avatar { margin-top: 8px; } }
+/* 手機版：照片格子改直一點，顯示更多畫面（圖檔是完整原圖，由 CSS 決定顯示範圍） */
+@media (max-width: 760px) { .hero .moments img { aspect-ratio: 3 / 4; } footer .moments img { aspect-ratio: 9 / 16; } }
