@@ -385,3 +385,7 @@ footer .moments { margin: 0 auto 30px; }
 footer .moments img { box-shadow: 0 4px 18px rgba(0,0,0,.3); }
 @media (max-width: 760px) { .moments { gap: 6px; } }
 @media print { .moments { max-width: 330px; margin-top: 12px; } .moments img { box-shadow: none; } footer .moments { margin-bottom: 14px; } }
+.hero .moments { margin: 24px 0 0; max-width: 560px; }
+@media print { .hero .moments { max-width: 330px; margin-top: 12px; } }
+@media screen and (min-width: 761px) { .hero { align-items: flex-start; } .hero img.avatar { margin-top: 8px; } }
+.hero .moments img { aspect-ratio: 3 / 4; object-fit: cover; }
