@@ -365,3 +365,15 @@ footer .btn.ghost { background: transparent; color: #fff; border-color: rgba(255
 @media screen and (max-width: 760px) {
   body::before { width: 190vw; }
 }
+
+/* 跨文化生活：明信片卡內的照片輪播 */
+.wh-card.carousel .slides { position: absolute; inset: 0; height: 100%; }
+.wh-card.carousel .slides > img { aspect-ratio: auto; height: 100%; }
+.wh-card.carousel .dots { top: 12px; bottom: auto; left: auto; right: 14px; justify-content: flex-end; }
+.wh-card.carousel .ctrl { top: 42%; }
+.wh-card figcaption { pointer-events: none; }
+@media print {
+  .wh-card.carousel .slides { display: block; padding: 0; }
+  .wh-card.carousel .slides > img { border-radius: 0; aspect-ratio: auto; }
+  .wh-card.carousel .slides > :nth-child(n+2) { display: none; }
+}
